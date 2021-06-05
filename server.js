@@ -5,11 +5,10 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const subjectAPI = require('./src/api/subject.api');
 
-
-dotenv.config();
-const app = express();
-app.use(cors());
-app.use(bodyParser.json);
+dotenv.config();//check 
+const app = express();//ok
+app.use(cors());//ok
+app.use(bodyParser.json());
 
 const PORT = process.env.PORT || 8080;
 const MONGODB_URI = process.env.MONGODB_URI;
