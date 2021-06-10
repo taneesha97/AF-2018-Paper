@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/sliit-api.iml" filepath="$PROJECT_DIR$/.idea/sliit-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/NodeJS-Back-End.iml" filepath="$PROJECT_DIR$/.idea/NodeJS-Back-End.iml" />
     </modules>
   </component>
 </project>
