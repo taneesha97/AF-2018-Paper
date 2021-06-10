@@ -11,6 +11,7 @@ const createCourse = async (req, res) => {
 		})
 	}
 }
+
 //populate function use to get data from other claseses.
 const getAllCourses = async(req, res)=> {
 	await Course.findById({}).populate('subjects', 'name discription amount')
@@ -47,10 +48,17 @@ const calculateAmount = async(req, res) => {
 }
 
 //Delete Course a Course web provide the Id.
+//Simple Get All method.
+const GetAll  = async(req, res) => {
+	const course = await Course.find()
+		.then(data => {res.status(200).send({ subjects: data});})
+		.catch(error => {res.status(500).send({ subjects: error});});
+}
 
 module.exports = {
 	createCourse,
 	getAllCourses,
 	getSubjectForCourse,
-	calculateAmount
+	calculateAmount,
+	GetAll
 }; 

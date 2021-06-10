@@ -4,7 +4,7 @@ const controller = require('../controllers/course.controller');
 
 module.exports = function (){
 	router.post('/create', controller.createCourse);
-	router.get('/', controller.getAllCourses);
+	router.get('/', controller.GetAll);
 	router.get('/:id', controller.getSubjectForCourse);
 	router.get('/amount/:id', controller.calculateAmount);
 	return router;
