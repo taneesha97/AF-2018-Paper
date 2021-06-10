@@ -1,3 +1,4 @@
+//Insert the Schema, Model Class
 const Course = require('../models/course.model');
 
 //Create course.
@@ -46,12 +47,22 @@ const calculateAmount = async (req, res) => {
 			})
 
 		}
-
 		res.status(200).send({total: total});
 
 	}
 }
+
+
+/*
+* Simple Database Methods.
+* */
+//Simple Insert method.
+
+
+
+
 //Delete Course a Course web provide the Id.
+
 
 //Simple Get All method.
 const GetAll  = async(req, res) => {
@@ -59,6 +70,7 @@ const GetAll  = async(req, res) => {
 		.then(data => {res.status(200).send({ subjects: data});})
 		.catch(error => {res.status(500).send({ subjects: error});});
 }
+
 //Simple Update Method.
 
 

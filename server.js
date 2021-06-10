@@ -5,6 +5,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const subjectAPI = require('./src/api/subject.api');
 const courseAPI = require('./src/api/course.api');
+const userAPI = require('./src/api/user.api');
 
 
 dotenv.config();
@@ -32,12 +33,15 @@ mongoose.connection.once('open', ()=> {
 });
 
 app.route('/').get((req, res) => {
-    res.send('SLIIT AF 2018 FINAl API');
+    res.send('Application Framework Final Paper API');
 });
 
+//Calling APIs
 app.use('/subject',subjectAPI());
 app.use('/course',courseAPI());
+app.use('/user',userAPI());
 
+//Connect to the Database.
 app.listen(PORT, () => {
     console.log(`Server is up and running on PORT ${PORT}`);
 });
