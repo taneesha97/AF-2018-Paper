@@ -13,13 +13,14 @@ const createCourse = async (req, res) => {
 }
 
 //populate function use to get data from other claseses.
-const getAllCourses = async(req, res)=> {
-	await Course.findById({}).populate('subjects', 'name discription amount')
-	.then(data => {
-		res.status(200).send({data: data});
-	}).catch(error => {
-		res.status(500).send({error: error.message});
-	})
+const getAllCourses = async (req, res) => {
+	await Course.find({}).populate("subjects", 'name description amount')
+		.then(data => {
+			res.status(200).send({data: data });
+		})
+		.catch(error => {
+			res.status(500).send({error: error });
+		})
 }
 
 //Find a Specific Document.
@@ -34,19 +35,22 @@ const getSubjectForCourse = async (req, res) => {
 }
 
 //Reuse the above method and calculate the amount.
-const calculateAmount = async(req, res) => {
-	if(req.params && req.params.id){
-		const course = await Course.findById(req.params.id);
-		let totalAmount = 0;
-		if(course.subjects.length > 0){
+const calculateAmount = async (req, res) => {
+	if (req.params && req.params.id) {
+		const course = await Course.findById(req.params.id)
+			.populate("subjects", 'name description amount');
+		let total = 0;
+		if (course.subjects.length > 0) {
 			course.subjects.map((subject) => {
-				totalAmount+=subject.amount;
-			});
+				total += subject.amount;
+			})
+
 		}
-		res.status(200).send({totalAmount: totalAmount});
+
+		res.status(200).send({total: total});
+
 	}
 }
-
 //Delete Course a Course web provide the Id.
 
 //Simple Get All method.
