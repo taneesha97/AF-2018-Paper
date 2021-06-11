@@ -7,5 +7,6 @@ module.exports = function(){
     router.post('/create',controller.createUser);
     router.get('/',controller.GetAll);
     router.put('/update',controller.UpdateUser);
+    router.delete('/delete',controller.DeleteUser);
     return router;
 }

@@ -34,10 +34,17 @@ const UpdateUser = async (req, res) => {
 }
 
 //Simple Delete Method.
-
+const DeleteUser = async (req, res) => {
+    const deleted = Users.deleteOne(
+        {"_id": objectId(req.body._id)},
+    )
+        .then(data => {res.status(200).send({user: data});})
+        .catch(error => {res.status(500).send({ user: error});})
+}
 
 module.exports = {
     createUser,
     GetAll,
-    UpdateUser
+    UpdateUser,
+    DeleteUser
 };
