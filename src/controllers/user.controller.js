@@ -35,10 +35,11 @@ const UpdateUser = async (req, res) => {
 
 //Simple Delete Method.
 const DeleteUser = async (req, res) => {
+    console.log(req.params.id)
     const deleted = Users.deleteOne(
-        {"_id": objectId(req.body._id)},
+        {"_id": objectId(req.params.id)},
     )
-        .then(data => {res.status(200).send({user: data});})
+        .then(data => {res.status(200).send(console.log(data));})
         .catch(error => {res.status(500).send({ user: error});})
 }
 
